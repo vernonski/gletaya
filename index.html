@@ -90,7 +90,6 @@
       background: var(--primary-navy);
       transition: all 0.3s ease;
     }
-    /* Hamburger animation to "X" when active */
     .hamburger.active div:nth-child(1) {
       transform: rotate(45deg) translate(5px, 5px);
     }
@@ -468,9 +467,10 @@
     changeBackground();
     setInterval(changeBackground, 5000);
 
-    // Hamburger toggle with touch support
+    // Hamburger toggle with touch support and auto-close
     const hamburger = document.querySelector('.hamburger');
     const nav = document.querySelector('nav');
+    const navLinks = document.querySelectorAll('nav ul li a');
     const toggleMenu = () => {
       const isActive = nav.classList.toggle('active');
       hamburger.classList.toggle('active');
@@ -478,14 +478,26 @@
     };
     hamburger.addEventListener('click', toggleMenu);
     hamburger.addEventListener('touchstart', (e) => {
-      e.preventDefault(); // Prevent double-tap zoom or other touch issues
+      e.preventDefault();
       toggleMenu();
     });
     hamburger.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault(); // Prevent scrolling on space
+        e.preventDefault();
         toggleMenu();
       }
+    });
+    // Close menu when a nav link is tapped
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('active');
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', false);
+      });
+      link.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        link.click(); // Trigger click to navigate and close menu
+      });
     });
 
     // Particle Effect
