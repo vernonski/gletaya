@@ -1,639 +1,415 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>G. Letaya & Associates Advocates</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #ffffff;
-            color: #000000;
-            line-height: 1.6;
-        }
-
-        header {
-            background: linear-gradient(135deg, #ffffff, #e6f0ff);
-            padding: 20px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo img {
-            height: 60px;
-            vertical-align: middle;
-        }
-
-        .logo-text {
-            font-size: 0.9em; /* Increased for readability */
-            font-weight: bold;
-            color: #003366;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-left: 20px;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: flex-end;
-            flex-grow: 1;
-        }
-
-        nav ul li {
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            color: #003366;
-            text-decoration: none;
-            font-size: 0.9em;
-            transition: color 0.3s, transform 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #FFD700;
-            transform: scale(1.1);
-        }
-
-        .hero {
-    position: relative;
-    height: 100vh; /* full viewport height */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.3); /* overlay to improve text readability */
-    z-index: 1;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    color: #003366;
-    text-shadow: 0 0 10px #FFD700;
-}
-
-.hero {
-    background-size: cover;
-    background-position: center;
-    transition: background-image 1s ease-in-out;
-}
-
-        .hero h1 {
-            font-size: 3.5em;
-            margin-bottom: 20px;
-            color: #003366;
-            text-shadow: 0 0 10px #FFD700;
-        }
-
-        .hero p {
-            font-size: 1.5em;
-            max-width: 800px;
-            margin: 0 auto;
-            color: #003366;
-        }
-
-        section {
-            padding: 60px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        h2 {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 40px;
-            color: #003366;
-            position: relative;
-        }
-
-        h2::after {
-            content: '';
-            display: block;
-            width: 100px;
-            height: 2px;
-            background: #FFD700;
-            margin: 10px auto 0;
-        }
-
-        .about p {
-            text-align: center;
-            font-size: 1.2em;
-        }
-
-        .about .image-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .image-card {
-            background: #e6f0ff;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            position: relative;
-            animation: futuristic-glow 3s infinite alternate;
-        }
-
-        .image-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        .image-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(255, 215, 0, 0.3);
-        }
-
-        @keyframes futuristic-glow {
-            0% {
-                box-shadow: 0 0 5px #FFD700, inset 0 0 5px #FFD700;
-            }
-            50% {
-                box-shadow: 0 0 20px #FFD700, inset 0 0 20px #FFD700;
-            }
-            100% {
-                box-shadow: 0 0 5px #FFD700, inset 0 0 5px #FFD700;
-            }
-        }
-
-        .services-grid, .team-grid, .articles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .service-item, .team-member, .article-item {
-            background: #e6f0ff;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .service-item:hover, .team-member:hover, .article-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(255, 215, 0, 0.3);
-        }
-
-        .service-item h3, .team-member h3, .article-item h3 {
-            color: #003366;
-            margin-bottom: 10px;
-        }
-
-        .article-item p {
-            font-size: 1em;
-            margin-bottom: 15px;
-        }
-
-        .article-item a {
-            color: #003366;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .article-item a:hover {
-            text-decoration: underline;
-            color: #FFD700;
-        }
-
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .stat-card {
-            background: #e6f0ff;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            width: 200px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            animation: glow 2s infinite;
-        }
-
-        .stat-card h3 {
-            color: #003366;
-            font-size: 2em;
-            margin: 0;
-        }
-
-        .stat-card p {
-            color: #003366;
-            font-size: 1em;
-            margin: 10px 0 0;
-        }
-
-        @keyframes glow {
-            0% { box-shadow: 0 0 5px #FFD700; }
-            50% { box-shadow: 0 0 20px #FFD700; }
-            100% { box-shadow: 0 0 5px #FFD700; }
-        }
-
-        .contact form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .contact input,
-        .contact textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #003366;
-            background: #ffffff;
-            color: #000000;
-            border-radius: 5px;
-        }
-
-        .contact button {
-            background: #003366;
-            color: #ffffff;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.2em;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-
-        .contact button:hover {
-            background: #FFD700;
-            color: #003366;
-        }
-
-        footer {
-            background: #ffffff;
-            text-align: center;
-            padding: 20px;
-            border-top: 1px solid #e6f0ff;
-        }
-
-        footer p {
-            margin: 0;
-            font-size: 0.9em;
-            color: #003366;
-        }
-
-        header.hide {
-            transform: translateY(-100%);
-        }
-        /* Slide-in Animations */
-@keyframes slideInLeft {
-    from { transform: translateX(-100px); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes slideInRight {
-    from { transform: translateX(100px); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes slideInBottom {
-    from { transform: translateY(100px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-.slide-in-left {
-    animation: slideInLeft 5s ease forwards;
-}
-
-.slide-in-right {
-    animation: slideInRight 5s ease forwards;
-}
-
-.slide-in-bottom {
-    animation: slideInBottom 5s ease forwards;
-}
-
-/* Practice Area Icons */
-.service-item i {
-    color: #FFD700;
-    margin-bottom: 15px;
-    display: block;
-    transition: transform 0.3s ease;
-}
-
-.service-item:hover i {
-    transform: scale(1.2);
-}
-
-.team-member img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-bottom: 15px;
-    border: 3px solid #FFD700; /* glowing gold outline */
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
-    transition: transform 0.3s ease;
-}
-
-.team-member img:hover {
-    transform: scale(1.1);
-}
-.hero-logo {
-  width: 200px;
-  margin-bottom: 70px;
-  filter: drop-shadow(0 0 8px #FFD700) drop-shadow(0 0 15px #FFD700);
-  animation: pulseGlow 7s infinite alternate;
-}
-
-@keyframes pulseGlow {
-  from {
-    filter: drop-shadow(0 0 8px #FFD700) drop-shadow(0 0 15px #FFD700);
-    transform: scale(1);
-  }
-  to {
-    filter: drop-shadow(0 0 15px #FFD700) drop-shadow(0 0 30px #FFD700);
-    transform: scale(1.05);
-  }
-}
-
-
-    </style>
-</head>
-<body>
-    <header>
-        <div class="header-content">
-            <div class="logo">
-                <img src="images/logo.png" alt="G. Letaya & Associates Logo">
-                <span class="logo-text">G. Letaya & Associates Advocates</span>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#insights">Insights</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- HERO -->
-<section id="home" class="hero">
-  <div class="hero-content">
-    <!-- Glowing Logo -->
-    <img src="images/logo.png" alt="G. Letaya & Associates Logo" class="hero-logo">
-    
-    <h1>Welcome to G. Letaya & Associates</h1>
-    <p>Your trusted partners in innovative legal solutions for the future. Blending corporate excellence with cutting-edge strategies.</p>
-  </div>
-</section>
-
-
-    <section id="about" class="about">
-        <h2>About Us</h2>
-        <p>G. Letaya & Associates is a premier full-service law firm specializing in Kenyan and international legal matters. Established with a vision to provide exceptional, forward-thinking legal services, we cater to a diverse clientele including corporations, individuals, and government entities. Our team of experts ensures personalized, efficient, and transparent solutions.</p>
-        <div class="image-cards">
-             <div class="image-card slide-in-left">
-                <img src="images/letaya.jpeg" alt="Team Meeting">
-            </div>
-             <div class="image-card slide-in-bottom">
-                <img src="images/library.jpg" alt="Courtroom">
-            </div>
-            <div class="image-card slide-in-right">
-                <img src="images/letaya1.jpeg" alt="Office Space">
-            </div>
-        </div>
-        <div class="stats">
-            <div class="stat-card">
-                <h3 data-target="500">0</h3>
-                <p>Cases Won</p>
-            </div>
-            <div class="stat-card">
-                <h3 data-target="1000">0</h3>
-                <p>Clients Served</p>
-            </div>
-            <div class="stat-card">
-                <h3 data-target="20">0</h3>
-                <p>Years of Experience</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="services">
-        <h2>Practice Areas</h2>
-        <div class="services-grid">
-            <div class="service-item">
-                <i class="fas fa-gavel fa-2x"></i>
-                <h3>Dispute Resolution & ADR</h3>
-                <p>Expert handling of disputes through litigation and alternative resolution methods.</p>
-            </div>
-            <div class="service-item">
-                 <i class="fas fa-building fa-2x"></i>
-                <h3>Corporate & Commercial</h3>
-                <p>Advisory on business transactions, contracts, and compliance.</p>
-            </div>
-            <div class="service-item">
-                <i class="fas fa-university fa-2x"></i>
-                <h3>Banking & Finance</h3>
-                <p>Legal support for financial institutions and transactions.</p>
-            </div>
-            <div class="service-item">
-                <i class="fas fa-home fa-2x"></i>
-                <h3>Real Estate & Property</h3>
-                <p>Guidance on property acquisitions, developments, and disputes.</p>
-            </div>
-            <div class="service-item">
-                <i class="fas fa-passport fa-2x"></i>
-                <h3>Immigration</h3>
-                <p>Assistance with visas, citizenship, and immigration compliance.</p>
-            </div>
-            <div class="service-item">
-                <i class="fas fa-handshake fa-2x"></i>
-                <h3>Mergers & Acquisitions</h3>
-                <p>Strategic advice on business mergers and acquisitions.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="insights">
-        <h2>Insights</h2>
-        <div class="articles-grid">
-            <div class="article-item">
-                <h3>The Future of AI in Legal Practice</h3>
-                <p>Exploring how artificial intelligence is revolutionizing dispute resolution and contract analysis in the Kenyan legal landscape.</p>
-                <a href="#">Read More</a>
-            </div>
-            <div class="article-item">
-                <h3>Navigating Corporate Mergers in a Digital Era</h3>
-                <p>Insights into the legal challenges and opportunities presented by blockchain and digital assets in mergers and acquisitions.</p>
-                <a href="#">Read More</a>
-            </div>
-            <div class="article-item">
-                <h3>Sustainable Real Estate Development: Legal Perspectives</h3>
-                <p>A look at environmental regulations and futuristic urban planning in property law.</p>
-                <a href="#">Read More</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="team">
-        <h2>Meet Our Team</h2>
-        <div class="team-grid">
-            <div class="team-member">
-                 <img src="images/letaya.jpeg" alt="G. Letaya">
-                <h3>Gideon Letaya</h3>
-                <p>Managing Partner - Over 20 years of experience in corporate law and legal tech integration.</p>
-            </div>
-            <div class="team-member">
-                <img src="images/team2.jpg" alt="Associate 1">
-                <h3>Associate 1</h3>
-                <p>Specialist in Dispute Resolution with a focus on AI-driven arbitration.</p>
-            </div>
-            <div class="team-member">
-                 <img src="images/team3.jpg" alt="Associate 2">
-                <h3>Associate 2</h3>
-                <p>Expert in Banking & Finance, leveraging blockchain for secure transactions.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <h2>Get in Touch with us</h2>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-        <p style="text-align: center; margin-top: 20px;">Address: Nairobi, Kenya | Email: info@letayaadvocates.com | Phone: +254-708-071-704</p>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 G. Letaya & Associates Advocates. All rights reserved.</p>
-    </footer>
-
-    <script>
-        let lastScroll = 0;
-        const header = document.querySelector('header');
-
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            if (currentScroll > lastScroll) {
-                header.classList.add('hide');
-            } else {
-                header.classList.remove('hide');
-            }
-            lastScroll = currentScroll;
-        });
-
-        const counters = document.querySelectorAll('.stat-card h3');
-        counters.forEach(counter => {
-            const updateCount = () => {
-                const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText;
-                const increment = target / 200;
-
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + increment);
-                    setTimeout(updateCount, 10); // Increased for smoother animation
-                } else {
-                    counter.innerText = target;
-                }
-            };
-            updateCount();
-        });
-    </script>
-    <script>
-    // Animate stat counters (already there, keep it)
-    const counters = document.querySelectorAll('.stat-card h3');
-    counters.forEach(counter => {
-        const updateCount = () => {
-            const target = +counter.getAttribute('data-target');
-            const count = +counter.innerText;
-            const increment = target / 200;
-            if (count < target) {
-                counter.innerText = Math.ceil(count + increment);
-                setTimeout(updateCount, 10);
-            } else {
-                counter.innerText = target;
-            }
-        };
-        updateCount();
-    });
-
-    // 🔥 Intersection Observer for slide-in animations
-    const sliders = document.querySelectorAll('.slide-in-left, .slide-in-right, .slide-in-bottom');
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                observer.unobserve(entry.target); // animate once
-            }
-        });
-    }, { threshold: 0.2 }); // trigger when 20% visible
-
-    sliders.forEach(slide => {
-        observer.observe(slide);
-    });
-</script>
-<script>
-    // Hero background slideshow
-    const hero = document.querySelector('.hero');
-    const images = [
-        "images/law.jpg",
-        "images/library.jpg",
-        "images/justice.jpg",
-        "images/legal.jpg"
-
-    ];
-    let current = 0;
-
-    function changeBackground() {
-        hero.style.backgroundImage = `url(${images[current]})`;
-        current = (current + 1) % images.length;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>G. Letaya & Associates Advocates</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #ffffff;
+      color: #000000;
+      line-height: 1.6;
     }
 
-    // Start immediately and loop every 5 seconds
+    header {
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(8px);
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo img { height: 40px; width: auto; }
+    .logo-text {
+      font-size: 0.8em;
+      font-weight: bold;
+      color: #003366;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li a {
+      color: #003366;
+      text-decoration: none;
+      font-size: 0.9em;
+      transition: color 0.3s, transform 0.3s;
+    }
+    nav ul li a:hover { color: #FFD700; transform: scale(1.1); }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+    .hamburger div {
+      width: 25px; height: 3px;
+      background: #003366;
+      transition: all 0.3s ease;
+    }
+
+    @media(max-width: 768px) {
+      nav {
+        position: absolute;
+        top: 60px; right: 0;
+        width: 200px;
+        background: rgba(255,255,255,0.95);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+      }
+      nav ul { flex-direction: column; padding: 20px; }
+      nav ul li { margin: 15px 0; }
+      nav.active { transform: translateX(0); }
+      .hamburger { display: flex; }
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      transition: background-image 1s ease-in-out;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(255, 255, 255, 0.3);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: #003366;
+      padding: 0 15px;
+    }
+    .hero-logo {
+      width: 150px;
+      margin-bottom: 30px;
+      filter: drop-shadow(0 0 8px #FFD700) drop-shadow(0 0 15px #FFD700);
+      animation: pulseGlow 7s infinite alternate;
+    }
+    @keyframes pulseGlow {
+      from { transform: scale(1); filter: drop-shadow(0 0 8px #FFD700) drop-shadow(0 0 15px #FFD700); }
+      to { transform: scale(1.05); filter: drop-shadow(0 0 15px #FFD700) drop-shadow(0 0 30px #FFD700); }
+    }
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #FFD700;
+    }
+    .hero p {
+      font-size: 1.2em;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    @media(max-width: 768px) {
+      .hero h1 { font-size: 2em; }
+      .hero p { font-size: 1em; }
+    }
+
+    section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
+    h2 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 40px;
+      color: #003366;
+      position: relative;
+    }
+    h2::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 2px;
+      background: #FFD700;
+      margin: 10px auto 0;
+    }
+
+    .about p { text-align: center; font-size: 1.2em; }
+
+    .image-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .image-card {
+      background: #e6f0ff;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      position: relative;
+      animation: futuristic-glow 3s infinite alternate;
+    }
+    .image-card img {
+      width: 100%; height: 200px; object-fit: cover; border-radius: 10px;
+    }
+    .image-card:hover { transform: translateY(-10px); box-shadow: 0 8px 16px rgba(255,215,0,0.3); }
+    @keyframes futuristic-glow {
+      0% { box-shadow: 0 0 5px #FFD700, inset 0 0 5px #FFD700; }
+      50% { box-shadow: 0 0 20px #FFD700, inset 0 0 20px #FFD700; }
+      100% { box-shadow: 0 0 5px #FFD700, inset 0 0 5px #FFD700; }
+    }
+
+    .services-grid, .team-grid, .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    .service-item, .team-member, .article-item {
+      background: #e6f0ff;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .service-item:hover, .team-member:hover, .article-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(255,215,0,0.3);
+    }
+    .team-member img {
+      width: 120px; height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      border: 3px solid #FFD700;
+      box-shadow: 0 0 15px rgba(255,215,0,0.4);
+      transition: transform 0.3s ease;
+    }
+    .team-member img:hover { transform: scale(1.1); }
+
+    .stats { display: flex; justify-content: center; gap: 30px; margin-top: 40px; flex-wrap: wrap; }
+    .stat-card {
+      background: #e6f0ff;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      width: 200px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      animation: glow 2s infinite;
+    }
+    @keyframes glow {
+      0% { box-shadow: 0 0 5px #FFD700; }
+      50% { box-shadow: 0 0 20px #FFD700; }
+      100% { box-shadow: 0 0 5px #FFD700; }
+    }
+
+    .contact form { max-width: 600px; margin: 0 auto; }
+    .contact input, .contact textarea {
+      width: 100%; padding: 10px; margin: 10px 0;
+      border: 1px solid #003366; border-radius: 5px;
+    }
+    .contact button {
+      background: #003366; color: #fff; border: none;
+      padding: 15px 30px; font-size: 1.2em;
+      cursor: pointer; border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .contact button:hover { background: #FFD700; color: #003366; }
+
+    footer {
+      background: #ffffff;
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid #e6f0ff;
+    }
+    footer p { margin: 0; font-size: 0.9em; color: #003366; }
+
+    header.hide { transform: translateY(-100%); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <img src="images/logo.png" alt="Logo">
+        <span class="logo-text">G. Letaya & Associates Advocates</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#insights">Insights</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="hamburger">
+        <div></div><div></div><div></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <img src="images/logo.png" alt="Logo" class="hero-logo">
+      <h1>Welcome to G. Letaya & Associates</h1>
+      <p>Your trusted partners in innovative legal solutions for the future. Blending corporate excellence with cutting-edge strategies.</p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>G. Letaya & Associates is a premier full-service law firm specializing in Kenyan and international legal matters...</p>
+    <div class="image-cards">
+      <div class="image-card"><img src="images/letaya.jpeg" alt="Team"></div>
+      <div class="image-card"><img src="images/library.jpg" alt="Courtroom"></div>
+      <div class="image-card"><img src="images/letaya1.jpeg" alt="Office"></div>
+    </div>
+    <div class="stats">
+      <div class="stat-card"><h3 data-target="500">0</h3><p>Cases Won</p></div>
+      <div class="stat-card"><h3 data-target="1000">0</h3><p>Clients Served</p></div>
+      <div class="stat-card"><h3 data-target="20">0</h3><p>Years of Experience</p></div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <h2>Practice Areas</h2>
+    <div class="services-grid">
+      <div class="service-item"><i class="fas fa-gavel fa-2x"></i><h3>Dispute Resolution & ADR</h3><p>Expert handling...</p></div>
+      <div class="service-item"><i class="fas fa-building fa-2x"></i><h3>Corporate & Commercial</h3><p>Advisory...</p></div>
+      <div class="service-item"><i class="fas fa-university fa-2x"></i><h3>Banking & Finance</h3><p>Legal support...</p></div>
+      <div class="service-item"><i class="fas fa-home fa-2x"></i><h3>Real Estate & Property</h3><p>Guidance...</p></div>
+      <div class="service-item"><i class="fas fa-passport fa-2x"></i><h3>Immigration</h3><p>Assistance...</p></div>
+      <div class="service-item"><i class="fas fa-handshake fa-2x"></i><h3>Mergers & Acquisitions</h3><p>Strategic advice...</p></div>
+    </div>
+  </section>
+
+  <!-- INSIGHTS -->
+  <section id="insights">
+    <h2>Insights</h2>
+    <div class="articles-grid">
+      <div class="article-item"><h3>The Future of AI</h3><p>Exploring AI in legal practice...</p><a href="#">Read More</a></div>
+      <div class="article-item"><h3>Corporate Mergers</h3><p>Challenges in digital era...</p><a href="#">Read More</a></div>
+      <div class="article-item"><h3>Sustainable Real Estate</h3><p>Environmental regulations...</p><a href="#">Read More</a></div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team">
+    <h2>Meet Our Team</h2>
+    <div class="team-grid">
+      <div class="team-member"><img src="images/letaya.jpeg" alt="G. Letaya"><h3>Gideon Letaya</h3><p>Managing Partner...Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+      <div class="team-member"><img src="images/team2.jpg" alt="Associate 1"><h3>Associate 1</h3><p>Specialist in...Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+      <div class="team-member"><img src="images/team3.jpg" alt="Associate 2"><h3>Associate 2</h3><p>Expert in finance...Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <h2>Get in Touch</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <p style="text-align:center;margin-top:20px;">Address: Nairobi | Email: info@letayaadvocates.com | Phone: +254-708-071-704</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 G. Letaya & Associates Advocates. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Hide header on scroll down
+    let lastScroll = 0;
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll > lastScroll) header.classList.add('hide');
+      else header.classList.remove('hide');
+      lastScroll = currentScroll;
+    });
+
+    // Counters
+    document.querySelectorAll('.stat-card h3').forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = target / 200;
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(updateCount, 10);
+        } else { counter.innerText = target; }
+      };
+      updateCount();
+    });
+
+    // Hero background slideshow
+    const hero = document.querySelector('.hero');
+    const images = ["images/law.jpg","images/library.jpg","images/justice.jpg","images/legal.jpg"];
+    let current = 0;
+    function changeBackground() {
+      hero.style.backgroundImage = `url(${images[current]})`;
+      current = (current + 1) % images.length;
+    }
     changeBackground();
     setInterval(changeBackground, 5000);
-</script>
 
+    // Hamburger toggle
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('nav');
+    hamburger.addEventListener('click', () => nav.classList.toggle('active'));
+  </script>
 </body>
 </html>
