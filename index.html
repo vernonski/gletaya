@@ -85,9 +85,20 @@
       aria-label: "Toggle navigation";
     }
     .hamburger div {
-      width: 25px; height: 3px;
+      width: 25px;
+      height: 3px;
       background: var(--primary-navy);
       transition: all 0.3s ease;
+    }
+    /* Hamburger animation to "X" when active */
+    .hamburger.active div:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active div:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active div:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
     }
 
     @media (max-width: 768px) {
@@ -101,6 +112,7 @@
         position: absolute;
         top: 60px;
         left: 0;
+        z-index: 999;
       }
       nav.active { display: block; }
       nav ul { flex-direction: column; align-items: center; }
@@ -435,7 +447,6 @@
           requestAnimationFrame(updateCount);
         } else { counter.innerText = target; }
       };
-      // Trigger animation when section is in view
       const observer = new IntersectionObserver(entries => {
         if (entries[0].isIntersecting) {
           updateCount();
@@ -457,14 +468,25 @@
     changeBackground();
     setInterval(changeBackground, 5000);
 
-    // Hamburger toggle
+    // Hamburger toggle with touch support
     const hamburger = document.querySelector('.hamburger');
     const nav = document.querySelector('nav');
-    hamburger.addEventListener('click', () => {
+    const toggleMenu = () => {
       const isActive = nav.classList.toggle('active');
+      hamburger.classList.toggle('active');
       hamburger.setAttribute('aria-expanded', isActive);
+    };
+    hamburger.addEventListener('click', toggleMenu);
+    hamburger.addEventListener('touchstart', (e) => {
+      e.preventDefault(); // Prevent double-tap zoom or other touch issues
+      toggleMenu();
     });
-    hamburger.addEventListener('keydown', e => { if (e.key === 'Enter') hamburger.click(); });
+    hamburger.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault(); // Prevent scrolling on space
+        toggleMenu();
+      }
+    });
 
     // Particle Effect
     const canvas = document.getElementById('particles');
